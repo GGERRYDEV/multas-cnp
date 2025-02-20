@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Multas del Cuerpo Nacional de Policia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <div class="header">
+        <img class="left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Emblema_CNP.svg/856px-Emblema_CNP.svg.png" alt="Emblema_de_la_Policía_de_Andalucía">
+        <h1>Calculadora de Multas del Cuerpo Nacional de Policia</h1>
+        <img class="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Badge_of_the_National_Police_Corps_of_Spain.svg/1024px-Badge_of_the_National_Police_Corps_of_Spain.svg.png" alt="Logo Policía">
+    </div>
 
+    <!-- Botones de navegación -->
+    <div class="nav-buttons">
+        <button class="full-line-button" onclick="showSection('sumademultas')">Suma de Multas</button>
+        <button class="full-line-button" onclick="showSection('multas')">Buscar Multas</button>
+        <button class="full-line-button" onclick="showSection('premultas')">PreMultas</button>
+    </div>
+
+    <!-- Sección Suma de Multas -->
+    <div id="sumademultas" class="section">
+        <h1>Sumar Multas</h1>
+        <p>Aquí puedes sumar las multas que tengas.</p>
+        <textarea id="inputText" placeholder="Introduce aquí el texto con las multas..."></textarea>
+        <div class="results" id="totalResult">Introduce las multas para mostrarte el total</div>
+    </div>
+
+    <!-- Sección Buscar Multas -->
+    <div id="multas" class="section">
+        <h2>Bienvenido a la Calculadora de Multas del Cuerpo Nacional de Policia</h2>
+        <p>Aquí puedes conseguir las multas que desees.</p>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Buscar multas..." />
+            <button class="goto-clipboard" onclick="document.getElementById('clipboard1').scrollIntoView()">Ir al Portapapeles</button>
+        </div>
+        <div id="results" class="results"></div>
+    </div>
+
+    <!-- Sección PreMultas -->
+    <div id="premultas" class="section">
+        <h2>Bienvenido a la sección de PreMultas del Cuerpo Nacional de Policia</h2>
+        <p>Aquí podrás encontrar buscando palabras clave como "persecución, etc." las multas correspondientes para la situación.</p>
+        <p>Cualquier cosa a añadir a mi md: ggerry.</p>
+        <div class="search-container">
+            <input id="search-input-premultas" type="text" placeholder="Buscar premultas..." oninput="searchItems()">
+            <button class="goto-clipboard" onclick="document.getElementById('clipboard1').scrollIntoView()">Ir al Portapapeles</button>
+        </div>
+        <div id="results-premultas" class="results"></div>
+    </div>
+
+    <!-- Portapapeles -->
+    <div id="clipboard1" class="clipboard">
+        <h2>Portapapeles Multas</h2>
+        <div id="clipboard-content1"></div>
+        <button id="copy-button1" class="copy-button">Copiar al portapapeles</button>
+    </div>
+
+    <div id="clipboard2" class="clipboard">
+        <h2>Portapapeles Arrestos</h2>
+        <div id="clipboard-content2"></div>
+        <button id="copy-button2" class="copy-button">Copiar al portapapeles</button>
+    </div>
+
+    <!-- Totales -->
+    <div id="totals" class="clipboard">
+        <h2>Total de Multas</h2>
+        <p id="total-amount">Total: 0 €</p>
+        <p id="total-count">Artículos seleccionados: 0</p>
+    </div>
+
+    <!-- Créditos -->
+    <h2>Hecho por: GERRY</h2>
+
+    <!-- Enlaces a los archivos JavaScript -->
+    <script src="data.js"></script> <!-- Datos de multas y premultas -->
+    <script src="script.js"></script> <!-- Lógica de la aplicación -->
+</body>
+</html>
